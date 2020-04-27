@@ -1,0 +1,99 @@
+
+<div id="academy-courses" class="page-layout simple">
+
+<!--   HEADER -->
+        <div class="header primary p-16 p-sm-24" fxLayout="column" fxLayoutAlign="center center">
+
+            <div class="hero-text">
+                <mat-icon class="hero-icon">school</mat-icon>
+                <h1 [@animate]="{value:'*',params:{delay:'100ms', y:'25px'}}">
+                    WELCOME TO DAILY HEALTH CARE
+                </h1>
+            </div>
+
+        </div>
+<!--     / HEADER -->
+
+    <!-- CONTENT -->
+    <div class="content p-24">
+
+        <div fxLayout="column" fxLayoutAlign="center">
+
+            <div class="courses" fxLayout="row wrap" fxLayoutAlign="center" [@animateStagger]="{value:'50'}">
+
+                <div class="course"  fxFlex="100" fxFlex.gt-xs="50"
+                     *ngFor="let board of boards"
+                     fxFlex.gt-sm="33"  [@animate]="{value:'*',params:{y:'100%'}}">
+
+                    <div class="course-content" fxLayout="column" fxFlex="1 1 auto">
+
+                        <div class="header" fxLayout="row" fxLayoutAlign="center center" [style.background-color]="board.color" style=" color: white">
+
+                            <div class="category" fxFlex>
+                                {{board.title}}
+                            </div>
+
+                            <div class="length" fxLayout="row" fxLayoutAlign="center center">
+                                <mat-icon class="length-icon s-20">{{board.icon}}</mat-icon>
+                            </div>
+
+                        </div>
+
+                        <div class="content" fxLayout="column" fxLayoutAlign="center center" fxFlex="1 1 auto">
+                            <div style="font-size: 6em;">{{board.details}}</div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    <div>
+        <app-allchats></app-allchats>
+    </div>
+    <div fxLayout="row" fxLayoutGap="10px" style="margin-top: 10px">
+        <div fxFlex="50">
+            <mat-card>
+                <div id="chart">
+                    <apx-chart
+                        [series]="chartOptions.series"
+                        [chart]="chartOptions.chart"
+                        [labels]="chartOptions.labels"
+                        [responsive]="chartOptions.responsive"
+                    ></apx-chart>
+                </div>
+            </mat-card>
+
+        </div>
+
+        <div fxFlex="50">
+            <mat-card>
+                <table>
+                    <tr>
+                        <th>Issues</th>
+                        <th>Persons</th>
+                    </tr>
+                    <tr *ngFor="let panel of panels">
+                        <td>{{panel.name}}</td>
+                        <td>{{panel.number}}</td>
+                    </tr>
+                </table>
+
+            </mat-card>
+        </div>
+    </div>
+    <div style="margin-top: 20px;">
+    </div>
+
+</div>
+<!--charts-->
+
+
+
+
+
+
+

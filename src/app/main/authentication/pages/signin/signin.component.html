@@ -1,0 +1,35 @@
+<section class="section-book">
+    <div class="row">
+        <div class="book">
+            <div class="book__form">
+                <form action="" class="form" name="loginForm" [formGroup]="loginForm">
+                    <div class=" u-margin-bottom-medium">
+                        <h2 class="heading-secondary">
+                            Daily Health Care
+                        </h2>
+                    </div>
+                        <div class="form__group">
+                            <input type="email" class="form__input" placeholder="Email Address" formControlName="email" id="email" required>
+                            <label for="email" class="form__label">Email Address</label>
+
+                        </div>
+                        <div class="form__group">
+                            <input type="password" class="form__input" placeholder="Password"  formControlName="password"  id="password" required>
+                            <label for="password" class="form__label">Password</label>
+
+                        </div>
+
+                        <div class="form__group">
+                            <button (click)="onFormSubmit(loginForm)"
+                                    [disabled]="loginForm.invalid" class="btn btn--green">
+                             <span *ngIf="_verifying; else elseBlock">VERIFYING...</span>
+                                <ng-template #elseBlock>LOGIN</ng-template>
+                            </button>
+                        </div>
+                    </form>
+
+            </div>
+
+        </div>
+    </div>
+</section>
